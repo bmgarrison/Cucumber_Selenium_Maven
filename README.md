@@ -1,11 +1,11 @@
 # Cucumber_Selenium_Maven
 Demo maven project using Cucumber BDD with selenium
 
-#Requirements:
+Requirements:
 Jdk 1.8+
 IDE such as Eclipse/Intellij
 
-#Setup
+Setup:
 Open IntelliJ
 Import Project
 Import project from external model
@@ -18,7 +18,7 @@ Verify jdk1.8 set as the SDK
 Next
 Finish
 
-#Run
+Run
 Initially run maven clean install (Run, Run configurations, click the + and select Maven)
   put clean install as the command line arguments and run
   
@@ -27,7 +27,7 @@ After, run as maven test
 
 Tests can be run as maven test or junit
 
-#Run as Junit:
+Run as Junit:
 
 
 
