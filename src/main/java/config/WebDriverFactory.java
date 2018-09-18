@@ -2,6 +2,7 @@ package config;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -14,7 +15,7 @@ public class WebDriverFactory {
 		WebDriver driver = null;
 		
 		switch(browser){
-		case CHROME:
+		case CHROME:			
 			WebDriverManager.chromedriver().setup();
 	        driver = new ChromeDriver();
 	        break;
@@ -25,6 +26,16 @@ public class WebDriverFactory {
 	     
 		case FIREFOX:
 			driver = new FirefoxDriver();
+			break;
+			
+		case HEADLESS:
+			ChromeOptions options = new ChromeOptions();
+			options.setHeadless(true);
+			
+			WebDriverManager.chromedriver().setup();
+	        driver = new ChromeDriver(options);
+	        break;
+	        
 		default:
 			break;
 

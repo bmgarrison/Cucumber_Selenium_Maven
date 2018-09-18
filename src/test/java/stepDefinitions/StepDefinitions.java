@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import config.BrowserTypeEnum;
 import config.WebDriverFactory;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -46,6 +47,11 @@ public class StepDefinitions{
 	public void check_more_outcomes() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
+	}
+	
+	@After
+	public void closeBrowser(){
+		driver.quit();
 	}
 	
 }
