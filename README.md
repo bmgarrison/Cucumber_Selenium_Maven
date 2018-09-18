@@ -25,9 +25,18 @@ Initially run maven clean install (Run, Run configurations, click the + and sele
 After, run as maven test
   put test in the command line arguments and run
 
-Tests can be run as maven test or junit
+To Run as Junit:
+Run the 'RuneCukeTest' class as a junit test
 
-Run as Junit:
+Other notes:
+Configuration for web driver is in src/main/java/config
+Step definitions are located in src/test/java/stepDefintions(the actual code)
+ALL feature files should be in src/test/resources
+Step definitions and feature file steps are 'glued' together by specifying the path to each in RunCukeTest
+Test steps are broken up into 'actions'
+
+Currently only Chrome is working
+
 
 
 
