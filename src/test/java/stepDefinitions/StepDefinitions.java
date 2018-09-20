@@ -13,10 +13,13 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageObjects.ArticlePage;
+import pageObjects.HomePage;
 
 public class StepDefinitions{
 	
 	WebDriver driver = null;
+	String assertionValue = null;
 	
 	@Before
 	public void setup(){
@@ -28,19 +31,21 @@ public class StepDefinitions{
         driver.get("https://www.wikipedia.org/");
 	}
 
-	@When("^I type an input$")
-	public void i_type_an_input(){
-        driver.findElement(By.xpath("//*[@id='searchInput']")).sendKeys("java");
+	@When("^I type an input \"([^\"]*)\"$")
+	public void i_type_an_input(String input){
+		assertionValue = input;
+       //HomePage.getSearchBox(driver).sendKeys("java");
+		HomePage.getSearchBoxWithInput(driver, input);
 	}
 
 	@When("^press search$")
 	public void press_search(){
-        driver.findElement(By.xpath("//*[@id='search-form']/fieldset/button")).click();
+		HomePage.getSearchButton(driver).click();
 	}
 
 	@Then("^I validate the outcomes$")
 	public void i_validate_the_outcomes(){
-        assertEquals("Java", driver.findElement(By.xpath("//*[@id='firstHeading']")).getText());
+        assertEquals(assertionValue, ArticlePage.getHeadingText(driver));
 	}
 
 	@Then("^check more outcomes$")
